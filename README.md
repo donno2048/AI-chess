@@ -1,5 +1,5 @@
 # AI-chess
-probably the dumbest way to contract a chess AI player
+probably the dumbest way to construct a chess AI player
 
 you're the white player.
 
