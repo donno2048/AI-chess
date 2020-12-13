@@ -1,6 +1,4 @@
-import os,threading,random,math,statistics;pi='';global dic;dic={ 'P': 100, 'N':320, 'B': 330, 'R': 500, 'Q': 900,'K':0}
-try:import chess
-except:os.system('pip3 install python-chess');import chess
+import os,threading,random,math,statistics,chess;pi='';global dic;dic={ 'P': 100, 'N':320, 'B': 330, 'R': 500, 'Q': 900,'K':0}
 board=chess.Board();board.push(chess.Move.from_uci('0'*4))
 def g(b:str,x:str,d:dict,y:int):
 	z=0;xx=x.capitalize()
