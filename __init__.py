@@ -1,4 +1,4 @@
-import os,threading,random,math,statistics,chess;pi='';global dic;dic={ 'P': 100, 'N':320, 'B': 330, 'R': 500, 'Q': 900,'K':0}
+import threading,random,chess;pi='';dic={ 'P': 100, 'N':320, 'B': 330, 'R': 500, 'Q': 900,'K':0}
 board=chess.Board();board.push(chess.Move.from_uci('0'*4))
 def g(b:str,x:str,d:dict,y:int):
 	z=0;xx=x.capitalize()
@@ -10,18 +10,18 @@ def ai(b,d:dict,y:int):
 	zq=[]
 	for i in list(b.legal_moves):
 		b.push(i);z=[]
-		if b.is_checkmate():return list(b.legal_moves)[i];break
+		if b.is_checkmate():return list(b.legal_moves)[i]
 		for j in list(b.ligal_moves):
 			b.push(j)
 			q=b.is_checkmate()*(-1000000)
 			bb=str(b)
 			b.pop()
 			bbb=0
-			for j in 'PpRrNnBbQqKk':bbb+=g(bb,j,d,y)
+			for k in 'PpRrNnBbQqKk':bbb+=g(bb,k,d,y)
 			z+=[bbb+q]
 		b.pop();zq+=[min(z)]
 	return list(b.legal_moves)[zq.index(max(zq))]
-def fi():π=input('to stop the process press enter')
+def fi():input('to stop the process press enter')
 def play():
     while True:
         F=input('from: ')+input('to: ').lower()
